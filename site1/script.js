@@ -5,13 +5,14 @@ function getCookie(name) {
   return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
+var URL = 'http://site2.com/counter.php';
 var ID = getCookie("ID");
 var xhr = ("onload" in new XMLHttpRequest()) ? new XMLHttpRequest() : new XDomainRequest();
 
 if(ID != undefined) {
 	var time = Math.round((new Date().getTime()) / 1000);
 	
-	xhr.open('POST', 'http://site2.com/counter.php', true);
+	xhr.open('POST', URL, true);
 	xhr.onload = function() {
 		console.log( this.responseText );
 	}
@@ -23,7 +24,7 @@ if(ID != undefined) {
 } else {
 	var time = Math.round((new Date().getTime()) / 1000);
 	
-	xhr.open('POST', 'http://site2.com/counter.php', true);
+	xhr.open('POST', URL, true);
 	xhr.onload = function() {
 		document.cookie = "ID="+xhr.responseText;
 	}
