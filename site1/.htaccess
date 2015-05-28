@@ -1,0 +1,5 @@
+AddDefaultCharset UTF-8
+
+Options All -Indexes
+php_value error_reporting 0
+php_flag register_globals off
